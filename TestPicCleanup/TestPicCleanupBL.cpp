@@ -6,15 +6,15 @@
 namespace {
 
     // The fixture for testing class Foo.
-    class PicCleanupTest : public ::testing::Test {
+    class PicCleanupBLTest : public ::testing::Test {
     protected:
         
 
-        PicCleanupTest() {
+        PicCleanupBLTest() {
             // You can do set-up work for each test here.
         }
 
-        ~PicCleanupTest() override {
+        ~PicCleanupBLTest() override {
             // You can do clean-up work that doesn't throw exceptions here.
         }
 
@@ -34,8 +34,10 @@ namespace {
         // Objects declared here can be used by all tests in the test case for Foo.
     };
 
-    // Tests that the Foo::Bar() method does Abc.
-    TEST_F(PicCleanupTest, DoesSomething) {
+    // Given a list of picture files with duplicates
+    // When prompted
+    // Then the duplicates will be moved to the duplicate folder and original to original folder
+    TEST_F(PicCleanupBLTest, DoesSomething) {
         const std::string input_filepath = "this/package/testdata/myinputfile.dat";
         const std::string output_filepath = "this/package/testdata/myoutputfile.dat";
         PicCleanupBL f;
@@ -43,7 +45,7 @@ namespace {
     }
 
     // Tests that Foo does Xyz.
-    TEST_F(PicCleanupTest, DoesXyz) {
+    TEST_F(PicCleanupBLTest, DoesXyz) {
         // Exercises the Xyz feature of Foo.
     }
 
