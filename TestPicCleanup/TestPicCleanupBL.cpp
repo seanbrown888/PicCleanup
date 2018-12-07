@@ -1,9 +1,15 @@
 
+#include <vector>
+
 #include "gtest/gtest.h"
 
+#include "../PicCleanupLib/PictureFileInfo.h"
 #include "../PicCleanupLib/PicCleanupBL.h"
 #include "M_PictureFileDiskCleaner.h"
 #include "M_RecursiveFileListingProvider.h"
+
+using ::testing::_;
+using ::testing::Return;
 
 namespace {
 
@@ -45,11 +51,19 @@ namespace {
     // When prompted
     // Then the duplicates will be moved to the duplicate folder and original to original folder
     TEST_F(PicCleanupBLTest, DoesSomething) {
-        const std::string input_filepath = "this/package/testdata/myinputfile.dat";
-        const std::string output_filepath = "this/package/testdata/myoutputfile.dat";
-        
-        
-        // EXPECT_EQ(f.Bar(input_filepath, output_filepath), 0);
+      
+        PictureFileInfo oneFile("file1.png", "c:\\pictures\\imported");
+        PictureFileInfo twoFile("file2.png", "c:\\pictures\\imported");
+        PictureFileInfo duplicateOfOneFile("file1.png", "c:\\pictures\\otherImportedDirectory");
+
+        std::vector<PictureFileInfo> testInputData = {oneFile, twoFile, duplicateOfOneFile};
+
+        ON_CALL(fileListingProvider_, filesInDirectory(_, _)).WillByDefault(Return(testInputData));
+
+        EXPECT_CALL(diskCleaner_, moveFile("c:\\pictures\\imported\\file1.png", "c:\\pictures\\originals\\file1.png"));
+        EXPECT_CALL(diskCleaner_, moveFile("c:\\pictures\\imported\\file2.png", "c:\\pictures\\originals\\file2.png"));
+        EXPECT_CALL(diskCleaner_, moveFile("c:\\pictures\\otherImportedDirectory\\file1.png", "c:\\pictures\\duplicates\\file1-otherImportedDirectory.png"));
+
     }
 
     // Tests that Foo does Xyz.
@@ -60,6 +74,6 @@ namespace {
 }  // namespace
 
 int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
+    ::testing::InitGoogleMock(&argc, argv);
     return RUN_ALL_TESTS();
 }
