@@ -15,8 +15,6 @@ namespace {
 
     class PicCleanupBLTest : public ::testing::Test {
     protected:
-        
-
         PicCleanupBLTest() : bl_(fileListingProvider_, diskCleaner_) {   
         }
 

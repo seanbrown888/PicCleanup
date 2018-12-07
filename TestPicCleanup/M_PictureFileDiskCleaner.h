@@ -5,7 +5,7 @@
 
 #include "../PicCleanupLib/I_PictureFileDiskCleaner.h"
 
-class M_PictureFileDiskCleaner : public I_PictureFileDiskCleaner
+class M_PictureFileDiskCleaner : public I_FileOnDiskDiskMover
 {
 public:
     M_PictureFileDiskCleaner() = default;

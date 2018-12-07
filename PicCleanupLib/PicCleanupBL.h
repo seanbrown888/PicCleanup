@@ -6,11 +6,11 @@
 class PicCleanupBL
 {
 public:
-    PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, I_PictureFileDiskCleaner& diskCleaner);
+    PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, I_FileOnDiskDiskMover& diskCleaner);
     ~PicCleanupBL();
 
 private:
     I_RecursiveFileListingProvider& fileListingProvider_;
-    I_PictureFileDiskCleaner& diskCleaner_;
+    I_FileOnDiskDiskMover& diskCleaner_;
 };
 

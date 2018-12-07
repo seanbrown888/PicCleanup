@@ -3,11 +3,11 @@
 #include <vector>
 #include <string>
 
-class I_PictureFileDiskCleaner
+class I_FileOnDiskDiskMover
 {
 public:
-    I_PictureFileDiskCleaner() = default;
-    virtual ~I_PictureFileDiskCleaner() = default;
+    I_FileOnDiskDiskMover() = default;
+    virtual ~I_FileOnDiskDiskMover() = default;
 
     virtual void moveFile(const std::string& oldFilenameWithPath, const std::string& newFileNameWithPath) = 0;
 };
