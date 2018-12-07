@@ -43,6 +43,9 @@
       <Project>{05f4258d-93ea-42f4-9e05-81675ac209b4}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="M_PictureFileDiskCleaner.h" />
+  </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -24,6 +24,15 @@
     <ClInclude Include="PicCleanupBL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="I_RecursiveFileListingProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureFileInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="I_PictureFileDiskCleaner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
