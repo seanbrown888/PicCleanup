@@ -3,9 +3,10 @@
 #include <vector>
 #include <gmock/gmock.h>
 
+#include "../PicCleanupLib/I_RecursiveFileListingProvider.h"
 #include "../PicCleanupLib/PictureFileInfo.h"
 
-class M_RecursiveFileListingProvider
+class M_RecursiveFileListingProvider : public I_RecursiveFileListingProvider
 {
 public:
     M_RecursiveFileListingProvider() = default;

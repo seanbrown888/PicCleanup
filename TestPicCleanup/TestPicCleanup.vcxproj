@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="M_PictureFileDiskCleaner.h" />
+    <ClInclude Include="M_RecursiveFileListingProvider.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
