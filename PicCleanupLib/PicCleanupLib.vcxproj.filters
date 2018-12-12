@@ -33,12 +33,18 @@
     <ClInclude Include="I_PictureFileDiskCleaner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RecursiveFileListingProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PicCleanupBL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RecursiveFileListingProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
