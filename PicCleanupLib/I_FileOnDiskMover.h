@@ -3,11 +3,11 @@
 #include <vector>
 #include <string>
 
-class I_FileOnDiskDiskMover
+class I_FileOnDiskMover
 {
 public:
-    I_FileOnDiskDiskMover() = default;
-    virtual ~I_FileOnDiskDiskMover() = default;
+    I_FileOnDiskMover() = default;
+    virtual ~I_FileOnDiskMover() = default;
 
     virtual void moveFile(const std::string& oldFilenameWithPath, const std::string& newFileNameWithPath) = 0;
 };

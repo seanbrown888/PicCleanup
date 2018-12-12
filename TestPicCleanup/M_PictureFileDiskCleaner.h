@@ -3,9 +3,9 @@
 #include <vector>
 #include <gmock/gmock.h>
 
-#include "../PicCleanupLib/I_PictureFileDiskCleaner.h"
+#include "../PicCleanupLib/I_FileOnDiskMover.h"
 
-class M_PictureFileDiskCleaner : public I_FileOnDiskDiskMover
+class M_PictureFileDiskCleaner : public I_FileOnDiskMover
 {
 public:
     M_PictureFileDiskCleaner() = default;

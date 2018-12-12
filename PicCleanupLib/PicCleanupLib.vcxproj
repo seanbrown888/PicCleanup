@@ -147,7 +147,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="I_PictureFileDiskCleaner.h" />
+    <ClInclude Include="FileOnDiskMover.h" />
+    <ClInclude Include="I_FileOnDiskMover.h" />
     <ClInclude Include="PictureFileInfo.h" />
     <ClInclude Include="I_RecursiveFileListingProvider.h" />
     <ClInclude Include="PicCleanupBL.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FileOnDiskMover.cpp" />
     <ClCompile Include="PicCleanupBL.cpp" />
     <ClCompile Include="RecursiveFileListingProvider.cpp" />
     <ClCompile Include="stdafx.cpp">
