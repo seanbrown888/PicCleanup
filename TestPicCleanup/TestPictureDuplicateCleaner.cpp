@@ -1,9 +1,10 @@
-
-#include <vector>
 #include "gtest/gtest.h"
+#include "gmock/gmock.h"
 
-#include "../PicCleanupLib/PictureFileInfo.h"
-#include "../PicCleanupLib/PicCleanupBL.h"
+#include <string>
+#include <vector>
+
+#include "..\PicCleanupLib\PictureDuplicateCleaner.h"
 
 #include "M_PictureFileDiskCleaner.h"
 #include "M_RecursiveFileListingProvider.h"
@@ -13,37 +14,35 @@ using ::testing::Return;
 
 namespace {
 
-    class PicCleanupBLTest : public ::testing::Test {
+    class PictureDuplicateCleanerTest : public ::testing::Test {
     protected:
-        PicCleanupBLTest() : bl_(fileListingProvider_, diskCleaner_) {   
+        PictureDuplicateCleanerTest() : cleaner_(fileListingProvider_, diskCleaner_) {
         }
 
-        ~PicCleanupBLTest() override {
+        ~PictureDuplicateCleanerTest() override {
         }
 
         void SetUp() override {
         }
 
         void TearDown() override {
+
         }
 
         M_RecursiveFileListingProvider fileListingProvider_;
         M_PictureFileDiskCleaner diskCleaner_;
-
-        PicCleanupBL bl_;
+        PictureDuplicateCleaner cleaner_;
     };
 
-    // Given a list of picture files with duplicates
-    // When prompted
-    // Then the duplicates will be moved to the duplicate folder and original to original folder
-    TEST_F(PicCleanupBLTest, DoesSomething) {
+    // 
+    TEST_F(PictureDuplicateCleanerTest, SomeSortOfClean) {
       
         // Setup test data
         std::string directoryToClean("c:\\pictures");
         PictureFileInfo oneFile("file1.png", directoryToClean);
         PictureFileInfo twoFile("file2.jpg", directoryToClean);
         PictureFileInfo duplicateOfOneFile("file1.png", directoryToClean + "\\otherDir");
-        std::vector<PictureFileInfo> testInputData = {oneFile, twoFile, duplicateOfOneFile};
+        std::vector<PictureFileInfo> testInputData = { oneFile, twoFile, duplicateOfOneFile };
 
         // Ensure test data is used
         ON_CALL(fileListingProvider_, filesInDirectory(_, _)).WillByDefault(Return(testInputData));
@@ -54,12 +53,7 @@ namespace {
         EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\otherDir\\file1.png", directoryToClean + "\\duplicates\\file1-otherDir.png"));
 
         // Perform action to get the expected output
-        bl_.cleaner().cleanup(directoryToClean, {".png", ".jpg"} );
+        cleaner_.cleanup(directoryToClean, { ".png", ".jpg" });
     }
 
 }  // namespace
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleMock(&argc, argv);
-    return RUN_ALL_TESTS();
-}

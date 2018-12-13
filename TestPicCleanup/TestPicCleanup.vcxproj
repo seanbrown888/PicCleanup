@@ -36,6 +36,7 @@
     <ClCompile Include="TestFileListingProvider.cpp" />
     <ClCompile Include="TestFileOnDiskMover.cpp" />
     <ClCompile Include="TestPicCleanupBL.cpp" />
+    <ClCompile Include="TestPictureDuplicateCleaner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

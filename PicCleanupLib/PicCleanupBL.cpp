@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "PicCleanupBL.h"
 
-PicCleanupBL::PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, I_FileOnDiskMover& diskCleaner)
-: fileListingProvider_(fileListingProvider), diskCleaner_(diskCleaner)
+PicCleanupBL::PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, I_FileOnDiskMover& diskMover)
+: fileListingProvider_(fileListingProvider), diskMover_(diskMover), cleaner_(fileListingProvider_, diskMover_)
 {
 }
 

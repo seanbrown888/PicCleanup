@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "PictureDuplicateCleaner.h"
 
-PictureDuplicateCleaner::PictureDuplicateCleaner()
+PictureDuplicateCleaner::PictureDuplicateCleaner(I_RecursiveFileListingProvider& fileListingProvider, I_FileOnDiskMover& diskMover)
+: fileListingProvider_(fileListingProvider), diskMover_(diskMover)
 {
 }
 

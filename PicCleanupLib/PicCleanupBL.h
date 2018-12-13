@@ -7,14 +7,14 @@
 class PicCleanupBL
 {
 public:
-    PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, I_FileOnDiskMover& diskCleaner);
+    PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, I_FileOnDiskMover& diskMover);
     ~PicCleanupBL();
 
     I_PictureCleaner& cleaner();
 
 private:
     I_RecursiveFileListingProvider& fileListingProvider_;
-    I_FileOnDiskMover& diskCleaner_;
+    I_FileOnDiskMover& diskMover_;
 
     PictureDuplicateCleaner cleaner_;
 };
