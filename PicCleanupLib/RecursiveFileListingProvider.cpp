@@ -30,7 +30,7 @@ std::vector<PictureFileInfo> RecursiveFileListingProvider::filesInDirectory(cons
             directoryIt.disable_recursion_pending();
         }
         else if (std::find(fileExtensionsToInclude.begin(), fileExtensionsToInclude.end(), directoryIt->path().extension()) != fileExtensionsToInclude.end())
-        {
+        {   
             matchingFiles.push_back(PictureFileInfo(directoryIt->path().filename().string(), directoryIt->path().parent_path().string()));
         }
 

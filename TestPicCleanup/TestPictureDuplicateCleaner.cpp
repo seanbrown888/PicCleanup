@@ -41,6 +41,7 @@ namespace {
       
         // Setup test data
         std::string directoryToClean("c:\\pictures");
+
         PictureFileInfo oneFile("file1.png", directoryToClean);
         PictureFileInfo twoFile("file2.jpg", directoryToClean);
         PictureFileInfo duplicateOfOneFile("file1.png", directoryToClean + "\\otherDir");
@@ -56,9 +57,9 @@ namespace {
 
         // Setup expected output
         EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\file1.png", directoryToClean + "\\originals\\file1.png"));
+        EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\otherDir\\file1.png", directoryToClean + "\\duplicates\\otherDir-file1.png"));
         EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\file2.jpg", directoryToClean + "\\originals\\file2.jpg"));
-        EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\otherDir\\file1.png", directoryToClean + "\\duplicates\\file1-otherDir.png"));
-        EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\otherDir\\file2.jpg", directoryToClean + "\\duplicates\\file1-otherDir.jpg"));
+        EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\otherDir\\file2.jpg", directoryToClean + "\\duplicates\\otherDir-file2.jpg"));
 
         // Perform action to get the expected output
         cleaner_.cleanup(directoryToClean, { ".png", ".jpg" });
