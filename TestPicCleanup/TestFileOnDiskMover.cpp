@@ -30,7 +30,8 @@ namespace {
         {
             if (fs::exists(oldLocation))
             {
-                fs::rename(oldLocation, newLocation);
+                std::error_code errorCode;
+                fs::rename(oldLocation, newLocation, errorCode);
             }
         }
 
