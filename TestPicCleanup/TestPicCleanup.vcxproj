@@ -47,6 +47,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="M_DuplicateFileFinder.h" />
     <ClInclude Include="M_PictureFileDiskCleaner.h" />
     <ClInclude Include="M_RecursiveFileListingProvider.h" />
   </ItemGroup>

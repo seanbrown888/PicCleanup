@@ -2,7 +2,11 @@
 #include "PicCleanupBL.h"
 
 PicCleanupBL::PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, I_FileOnDiskMover& diskMover)
-: fileListingProvider_(fileListingProvider), diskMover_(diskMover), cleaner_(fileListingProvider_, diskMover_)
+: 
+fileListingProvider_(fileListingProvider),
+diskMover_(diskMover), 
+duplicateFileFinder_(), 
+cleaner_(duplicateFileFinder_, diskMover_)
 {
 }
 

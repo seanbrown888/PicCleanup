@@ -3,6 +3,7 @@
 #include "I_FileOnDiskMover.h"
 #include "I_RecursiveFileListingProvider.h"
 #include "PictureDuplicateCleaner.h"
+#include "DuplicateFileNameFileFinder.h"
 
 class PicCleanupBL
 {
@@ -16,6 +17,7 @@ private:
     I_RecursiveFileListingProvider& fileListingProvider_;
     I_FileOnDiskMover& diskMover_;
 
+    DuplicateFileNameFileFinder duplicateFileFinder_;
     PictureDuplicateCleaner cleaner_;
 };
 

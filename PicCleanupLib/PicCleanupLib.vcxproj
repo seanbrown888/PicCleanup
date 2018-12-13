@@ -147,7 +147,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DuplicateFileNameFileFinder.h" />
     <ClInclude Include="FileOnDiskMover.h" />
+    <ClInclude Include="I_DuplicateFileFinder.h" />
     <ClInclude Include="I_FileOnDiskMover.h" />
     <ClInclude Include="I_PictureCleaner.h" />
     <ClInclude Include="PictureDuplicateCleaner.h" />
@@ -159,6 +161,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DuplicateFileNameFileFinder.cpp" />
     <ClCompile Include="FileOnDiskMover.cpp" />
     <ClCompile Include="PicCleanupBL.cpp" />
     <ClCompile Include="PictureDuplicateCleaner.cpp" />
