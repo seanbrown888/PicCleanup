@@ -13,7 +13,7 @@ namespace {
 
     class FileOnDiskMoverTest : public ::testing::Test {
     protected:
-        FileOnDiskMoverTest() : fileToMove_("..\\testSandbox\\Nope.txt"), newFileLocation_("..\\testSandbox\\Nope-Moved.txt") {
+        FileOnDiskMoverTest() : fileToMove_("..\\testSandbox\\Nope.txt") {
         }
 
         ~FileOnDiskMoverTest() override {
@@ -23,26 +23,41 @@ namespace {
         }
 
         void TearDown() override {
-            // Put the file back for next test
-            if (fs::exists(newFileLocation_))
+        
+        }
+
+        void putFileBackForNextTestCase(const std::string& oldLocation, const std::string& newLocation)
+        {
+            if (fs::exists(oldLocation))
             {
-                fs::rename(newFileLocation_, fileToMove_);
+                fs::rename(oldLocation, newLocation);
             }
         }
 
         FileOnDiskMover fileOnDiskMover_;
-
         std::string fileToMove_;
-        std::string newFileLocation_;
-
     };
 
     // Moves a file on disk from one location to another
     TEST_F(FileOnDiskMoverTest, MovesFileSameDir) {
+        std::string newFileLocation("..\\testSandbox\\Nope-Moved.txt");
 
-        fileOnDiskMover_.moveFile(fileToMove_, newFileLocation_);
+        fileOnDiskMover_.moveFile(fileToMove_, newFileLocation);
 
-        EXPECT_TRUE(fs::exists(newFileLocation_));
+        EXPECT_TRUE(fs::exists(newFileLocation));
+
+        putFileBackForNextTestCase(newFileLocation, fileToMove_);
+    }
+
+    // Moves a file on disk from one location to another, where the new directory doesn't exist
+    TEST_F(FileOnDiskMoverTest, MovesFileNonExistantDir) {
+        std::string newFileLocation("..\\testSandbox\\Duplicates\\Nope-Moved.txt");
+
+        fileOnDiskMover_.moveFile(fileToMove_, newFileLocation);
+
+        EXPECT_TRUE(fs::exists(newFileLocation));
+
+        putFileBackForNextTestCase(newFileLocation, fileToMove_);
     }
 
 }  // namespace
