@@ -34,6 +34,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="TestFileListingProvider.cpp" />
+    <ClCompile Include="TestFileOnDiskMover.cpp" />
     <ClCompile Include="TestPicCleanupBL.cpp" />
   </ItemGroup>
   <ItemGroup>
