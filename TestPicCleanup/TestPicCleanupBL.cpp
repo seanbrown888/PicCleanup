@@ -39,22 +39,22 @@ namespace {
     TEST_F(PicCleanupBLTest, DoesSomething) {
       
         // Setup test data
-        PictureFileInfo oneFile("file1.png", "c:\\pictures\\imported");
-        PictureFileInfo twoFile("file2.png", "c:\\pictures\\imported");
-        PictureFileInfo duplicateOfOneFile("file1.png", "c:\\pictures\\otherImportedDirectory");
+        std::string directoryToClean("..\\testSandbox\\acceptance");
+        PictureFileInfo oneFile("thumbup.png", directoryToClean);
+        PictureFileInfo twoFile("thumbup.jpg", directoryToClean);
+        PictureFileInfo duplicateOfOneFile("thumbup.png", directoryToClean + "\\otherDir");
         std::vector<PictureFileInfo> testInputData = {oneFile, twoFile, duplicateOfOneFile};
 
         // Ensure test data is used
         ON_CALL(fileListingProvider_, filesInDirectory(_, _)).WillByDefault(Return(testInputData));
 
         // Setup expected output
-        EXPECT_CALL(diskCleaner_, moveFile("c:\\pictures\\imported\\file1.png", "c:\\pictures\\originals\\file1.png"));
-        EXPECT_CALL(diskCleaner_, moveFile("c:\\pictures\\imported\\file2.png", "c:\\pictures\\originals\\file2.png"));
-        EXPECT_CALL(diskCleaner_, moveFile("c:\\pictures\\otherImportedDirectory\\file1.png", "c:\\pictures\\duplicates\\file1-otherImportedDirectory.png"));
+        EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\thumbup.png", directoryToClean + "\\originals\\thumbup.png"));
+        EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\thumbup.jpg", directoryToClean + "\\originals\\thumbup.jpg"));
+        EXPECT_CALL(diskCleaner_, moveFile(directoryToClean + "\\otherDir\\thumbup.png", directoryToClean + "\\duplicates\\thumbup-otherDir.png"));
 
         // Perform action to get the expected output
-        // ACTION - not actually sure what action to call yet, good place to start ;)
-        //        - Another good place that could be started in parallel (if there was more than one of me, concretes of our Mocks from above
+        bl_.cleaner().cleanup(directoryToClean, {".png", ".jpg"} );
     }
 
 }  // namespace

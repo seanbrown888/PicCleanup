@@ -9,3 +9,8 @@ PicCleanupBL::PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, 
 PicCleanupBL::~PicCleanupBL()
 {
 }
+
+I_PictureCleaner & PicCleanupBL::cleaner()
+{
+    return cleaner_;
+}

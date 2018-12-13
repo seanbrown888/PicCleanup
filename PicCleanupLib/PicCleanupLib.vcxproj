@@ -149,6 +149,8 @@
   <ItemGroup>
     <ClInclude Include="FileOnDiskMover.h" />
     <ClInclude Include="I_FileOnDiskMover.h" />
+    <ClInclude Include="I_PictureCleaner.h" />
+    <ClInclude Include="PictureDuplicateCleaner.h" />
     <ClInclude Include="PictureFileInfo.h" />
     <ClInclude Include="I_RecursiveFileListingProvider.h" />
     <ClInclude Include="PicCleanupBL.h" />
@@ -159,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="FileOnDiskMover.cpp" />
     <ClCompile Include="PicCleanupBL.cpp" />
+    <ClCompile Include="PictureDuplicateCleaner.cpp" />
     <ClCompile Include="RecursiveFileListingProvider.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
