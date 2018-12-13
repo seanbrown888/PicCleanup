@@ -51,13 +51,15 @@ namespace {
 
     // Moves a file on disk from one location to another, where the new directory doesn't exist
     TEST_F(FileOnDiskMoverTest, MovesFileNonExistantDir) {
-        std::string newFileLocation("..\\testSandbox\\Duplicates\\Nope-Moved.txt");
+        std::string nonexistantDir("..\\testSandbox\\Duplicates");
+        std::string newFileLocation(nonexistantDir + "\\Nope-Moved.txt");
 
         fileOnDiskMover_.moveFile(fileToMove_, newFileLocation);
 
         EXPECT_TRUE(fs::exists(newFileLocation));
 
         putFileBackForNextTestCase(newFileLocation, fileToMove_);
+        fs::remove_all(nonexistantDir);
     }
 
 }  // namespace
