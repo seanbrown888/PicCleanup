@@ -29,7 +29,7 @@ namespace {
 
     // Returns list of files with a given extension, starting with starting directory
     //  and recursively within it
-    TEST_F(FileListingProviderTest, DoesSomething) {
+    TEST_F(FileListingProviderTest, ProvidesRequestedFiletypesRecusively) {
         std::string directoryToStartSearch("..\\testSandbox\\");
         std::vector<std::string> fileTypesToSearchFor = {".jpg", ".png"};
         std::vector<PictureFileInfo> expected = {PictureFileInfo("thumbup.jpg", "..\\testSandbox"), 

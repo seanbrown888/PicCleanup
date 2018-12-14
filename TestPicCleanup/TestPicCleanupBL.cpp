@@ -36,7 +36,7 @@ namespace {
     // Given a list of picture files with duplicates
     // When prompted
     // Then the duplicates will be moved to the duplicate folder and original to original folder
-    TEST_F(PicCleanupBLTest, DoesSomething) {
+    TEST_F(PicCleanupBLTest, MovesDuplicatesAsExpected) {
       
         // Setup test data
         std::string directoryToClean("c:\\pictures");
