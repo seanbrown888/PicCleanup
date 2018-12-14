@@ -33,6 +33,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="TestDuplicateFileNameFinder.cpp" />
     <ClCompile Include="TestFileListingProvider.cpp" />
     <ClCompile Include="TestFileOnDiskMover.cpp" />
     <ClCompile Include="TestPicCleanupBL.cpp" />
