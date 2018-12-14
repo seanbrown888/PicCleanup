@@ -5,7 +5,7 @@ PicCleanupBL::PicCleanupBL(I_RecursiveFileListingProvider& fileListingProvider, 
 : 
 fileListingProvider_(fileListingProvider),
 diskMover_(diskMover), 
-duplicateFileFinder_(), 
+duplicateFileFinder_(fileListingProvider_),
 cleaner_(duplicateFileFinder_, diskMover_)
 {
 }

@@ -30,9 +30,6 @@ void PictureDuplicateCleaner::cleanup(const std::string& directoryPath, const st
         std::string moveOne = kv.first.parentPath + '\\' + kv.first.filename;
         std::string moveTwo = pathForOrignalToGo;
 
-        printf("******Calling move: '%s' and '%s'\n", moveOne.c_str(), moveTwo.c_str());
-
-
         // Move and rename all duplicates
         for(const auto& pic : kv.second)
         {
@@ -42,7 +39,6 @@ void PictureDuplicateCleaner::cleanup(const std::string& directoryPath, const st
             std::string moveThree = pic.parentPath + '\\' + pic.filename;
 
             diskMover_.moveFile(pic.parentPath + '\\' + pic.filename, newFileNameWithPathForDuplicate);
-            printf("$$$$$$ Calling move: '%s' and '%s'\n", moveThree.c_str(), newFileNameWithPathForDuplicate.c_str());
         }
 
     }

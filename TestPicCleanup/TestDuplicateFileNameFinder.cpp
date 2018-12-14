@@ -15,7 +15,7 @@ namespace {
 
     class DuplicateFileNameFinderTest : public ::testing::Test {
     protected:
-        DuplicateFileNameFinderTest() {
+        DuplicateFileNameFinderTest() : duplicateFinder_(fileListingProvider_) {
         }
 
         ~DuplicateFileNameFinderTest() override {
