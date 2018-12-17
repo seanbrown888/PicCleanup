@@ -33,7 +33,10 @@ namespace {
         std::string directoryToStartSearch("..\\testSandbox\\");
         std::vector<std::string> fileTypesToSearchFor = {".jpg", ".png"};
         std::vector<PictureFileInfo> expected = {PictureFileInfo("thumbup.jpg", "..\\testSandbox"), 
-                                                 PictureFileInfo("thumbup.png", "..\\testSandbox") };
+                                                 PictureFileInfo("thumbup.png", "..\\testSandbox"),
+                                                 PictureFileInfo("thumbDown.jpg", "..\\testSandbox\\recursive"),
+                                                 PictureFileInfo("thumbDown.jpg", "..\\testSandbox\\second"),
+                                                 PictureFileInfo("thumbDown.jpg", "..\\testSandbox\\recursive\\second") };
 
         std::vector<PictureFileInfo> actual = fileListingProvider_.filesInDirectory(directoryToStartSearch, fileTypesToSearchFor);
 
